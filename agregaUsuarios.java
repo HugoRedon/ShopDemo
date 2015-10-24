@@ -41,12 +41,12 @@ public class agregaUsuarios extends HttpServlet {
                 psentencia.setString(6, pass1);
                 psentencia.execute();
             }
-            System.out.println("conexion exitosa");
+            out.println("conexion exitosa");
 
         } catch (ClassNotFoundException ex) {
-            System.out.println("Driver NO encontrado");
+            out.println("Driver NO encontrado");
         } catch (SQLException ex) {
-            System.out.println("Error " + ex);
+            out.println("Error " + ex);
         }
 
 
