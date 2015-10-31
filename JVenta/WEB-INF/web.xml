@@ -43,5 +43,23 @@
 	<servlet-name>GuardarProducto</servlet-name>
 	<url-pattern>/GuardarProducto</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+	<servlet-name>BuscarProductos</servlet-name>
+	<servlet-class>BuscarProductos</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>BuscarProductos</servlet-name>
+	<url-pattern>/BuscarProductos</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+	<servlet-name>EliminarProductos</servlet-name>
+	<servlet-class>EliminarProductos</servlet-class>
+  </servlet>
+  <servlet-mapping>
+	<servlet-name>EliminarProductos</servlet-name>
+	<url-pattern>/EliminarProductos</url-pattern>
+  </servlet-mapping>
 
 </web-app>

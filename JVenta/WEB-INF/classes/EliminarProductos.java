@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.sql.*;
 
 
-public class GuardarProducto extends HttpServlet{
+public class EliminarProductos extends HttpServlet{
 	public void doGet(HttpServletRequest request,
 	HttpServletResponse response) throws IOException{
 		
@@ -16,28 +16,29 @@ public class GuardarProducto extends HttpServlet{
 		String id = request.getParameter("id");
 		//out.println("id"+ id);	
         		
-		
-		String nombre = request.getParameter("nombre");
+		//String nombre = request.getParameter("nombre");
 		//out.println("nombre"+ nombre);
 		
-		String usuario = request.getParameter("usuario");
+		//String usuario = request.getParameter("usuario");
 		//out.println("usuario"+ usuario);
 		
-		String password = request.getParameter("password");
+		//String password = request.getParameter("password");
 		//out.println("password"+ password);
 		
-		String descripcion = request.getParameter("descripcion");
+		//String descripcion = request.getParameter("descripcion");
 		//out.println("descripcion"+ descripcion);
 		
 		try {
             Class.forName("com.mysql.jdbc.Driver");
             //out.println("Driver encontrado");
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/nomina", "root", "tresct");
-                 Statement psentencia = conn.createStatement();
-                //psentencia.setInt(1, Integer.parseInt(id));               
-				String query = "update productos set nombre='"+nombre+"', usuario='"+usuario+"', password='"+password+"', descripcion='"+descripcion+"' where id = "+ id;
-				//out.println(query);
-                psentencia.execute(query);
+            PreparedStatement psentencia = conn.prepareStatement("delete from producto where id = ?");
+			
+            psentencia.setInt(1, Integer.parseInt(id)); 
+			             
+             psentencia.execute();
+			 out.println("Se elimino producto "+id);	
+              //  psentencia.execute(query);
 				psentencia.close();
 				conn.close();
             
@@ -57,4 +58,3 @@ public class GuardarProducto extends HttpServlet{
 	
 		
 } 
-
